@@ -104,9 +104,9 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 1.5 }}
+          transition={{ duration: 1 }}
         >
-          <a href="#a-propos" className="btn-premium border-white text-white hover:bg-white hover:text-black">
+          <a href="#a-propos" className="px-10 py-4 bg-white text-black rounded-full tracking-widest text-xs uppercase font-medium hover:bg-white/90 transition-all">
             Découvrir mon univers
           </a>
         </motion.div>
@@ -203,9 +203,6 @@ const Portfolio = () => {
                 className="w-full h-full object-cover grayscale transition-transform duration-[2s] group-hover:scale-110 group-hover:grayscale-0"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex items-center justify-center">
-                <span className="text-white text-[10px] uppercase tracking-[0.4em] font-light">Découvrir</span>
-              </div>
             </motion.div>
           ))}
         </div>
@@ -294,7 +291,7 @@ const Pricing = () => {
                   <li key={fi} className="text-sm text-taupe/60 font-light">{f}</li>
                 ))}
               </ul>
-              <a href="#contact" className="text-[10px] uppercase tracking-[0.3em] font-medium hover:text-taupe/50 transition-colors flex items-center gap-2">
+              <a href="#contact" className="w-full py-4 bg-taupe text-white rounded-full text-[10px] uppercase tracking-[0.3em] font-medium hover:bg-taupe/90 transition-colors flex items-center justify-center gap-2">
                 Réserver <ChevronRight size={12} />
               </a>
             </motion.div>
@@ -363,7 +360,7 @@ const Contact = () => {
                 <label className="text-[10px] uppercase tracking-widest text-taupe/40 block mb-2">Votre message</label>
                 <textarea required rows={3} className="w-full bg-transparent focus:outline-none font-light resize-none text-taupe" placeholder="Dites-moi tout..."></textarea>
               </div>
-              <button type="submit" className="btn-premium w-full bg-taupe text-white hover:bg-taupe/90">
+              <button type="submit" className="w-full py-5 bg-taupe text-white rounded-full text-[10px] uppercase tracking-[0.3em] font-medium hover:bg-taupe/90 transition-all shadow-lg">
                 Envoyer ma demande
               </button>
             </div>
