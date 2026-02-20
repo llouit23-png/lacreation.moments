@@ -347,15 +347,19 @@ const Contact = () => {
           <div className="space-y-10">
             <div className="border-b border-taupe/20 pb-4 focus-within:border-taupe transition-colors">
               <label className="text-[10px] uppercase tracking-widest text-taupe/40 block mb-2">Nom & Prénom</label>
-              <input name="nom" required type="text" className="w-full bg-transparent focus:outline-none font-light text-taupe" placeholder="Votre nom" />
+              <input name="nom" required type="text" className="w-full bg-transparent focus:outline-none font-light text-taupe" placeholder="Votre nom et prénom" />
             </div>
             <div className="border-b border-taupe/20 pb-4 focus-within:border-taupe transition-colors">
               <label className="text-[10px] uppercase tracking-widest text-taupe/40 block mb-2">E-mail</label>
               <input name="email" required type="email" className="w-full bg-transparent focus:outline-none font-light text-taupe" placeholder="votre@email.com" />
             </div>
             <div className="border-b border-taupe/20 pb-4 focus-within:border-taupe transition-colors">
-              <label className="text-[10px] uppercase tracking-widest text-taupe/40 block mb-2">Date & Lieu</label>
-              <input name="date_lieu" required type="text" className="w-full bg-transparent focus:outline-none font-light text-taupe" placeholder="Ex: 12 Juin 2026, Paris" />
+              <label className="text-[10px] uppercase tracking-widest text-taupe/40 block mb-2">Date de l'événement</label>
+              <input name="date" required type="date" className="w-full bg-transparent focus:outline-none font-light text-taupe appearance-none" />
+            </div>
+            <div className="border-b border-taupe/20 pb-4 focus-within:border-taupe transition-colors">
+              <label className="text-[10px] uppercase tracking-widest text-taupe/40 block mb-2">Lieu</label>
+              <input name="lieu" required type="text" className="w-full bg-transparent focus:outline-none font-light text-taupe" placeholder="Ex: Paris" />
             </div>
           </div>
           
