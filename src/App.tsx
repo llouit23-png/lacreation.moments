@@ -220,7 +220,7 @@ const Portfolio = () => {
 const Services = () => {
   const services = [
     {
-      title: "Captation Photo & Vidéo",
+      title: "Captations Photos & Vidéos",
       desc: "Une couverture artistique et discrète de vos moments les plus précieux."
     },
     {
@@ -309,16 +309,26 @@ const Contact = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-light mb-8 uppercase tracking-widest">CRÉONS ENSEMBLE VOS SOUVENIRS</h2>
           <p className="text-taupe/70 font-light text-lg max-w-2xl mx-auto leading-relaxed mb-8">
-            Remplissez le formulaire ci-dessous ou contactez-moi directement sur Instagram pour me parler de votre projet.
+            Remplissez le formulaire ci-dessous ou contactez-moi directement par mail ou sur Instagram pour me parler de votre projet.
           </p>
-          <a 
-            href="https://www.instagram.com/lacreation.moments/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-taupe hover:text-taupe/60 transition-colors uppercase tracking-[0.2em] text-[10px] font-medium border-b border-taupe/20 pb-1"
-          >
-            <Instagram size={14} /> M’écrire sur Instagram
-          </a>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+            <a 
+              href="mailto:lacreation.moments@gmail.com" 
+              className="w-full md:w-auto px-12 py-5 bg-taupe text-white rounded-full text-[10px] uppercase tracking-[0.3em] font-medium hover:bg-taupe/90 transition-all shadow-lg flex items-center justify-center gap-3"
+            >
+              <Mail size={16} strokeWidth={1.5} />
+              Contacter par mail
+            </a>
+            <a 
+              href="https://www.instagram.com/lacreation.moments/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-full md:w-auto px-12 py-5 border border-taupe text-taupe rounded-full text-[10px] uppercase tracking-[0.3em] font-medium hover:bg-taupe hover:text-white transition-all flex items-center justify-center gap-3"
+            >
+              <Instagram size={16} strokeWidth={1.5} />
+              M’écrire sur Instagram
+            </a>
+          </div>
         </div>
 
         <form 
