@@ -21,7 +21,7 @@ const Navbar = () => {
           <img 
             src="https://res.cloudinary.com/dycoeugum/image/upload/v1771593761/LOGO_sxvhmu.png" 
             alt="Logo" 
-            className={`h-16 md:h-20 w-auto transition-all duration-500 ${isScrolled ? 'brightness-100' : 'brightness-0 invert'}`}
+            className={`h-20 md:h-28 w-auto transition-all duration-500 ${isScrolled ? 'brightness-100' : 'brightness-0 invert'}`}
           />
           <span className={`font-serif text-lg tracking-[0.1em] hidden sm:block transition-colors duration-500 ${isScrolled ? 'text-taupe' : 'text-white'}`}>
             La Création Moments
@@ -303,69 +303,72 @@ const Pricing = () => {
 };
 
 const Contact = () => {
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-    // In a real app, you would send the data to a backend or service like Formspree
-  };
-
   return (
     <section id="contact" className="section-padding bg-white relative">
-      <div className="max-w-5xl mx-auto relative z-10">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-light mb-6 uppercase tracking-widest">Créons ensemble vos souvenirs</h2>
-          <p className="text-taupe/50 font-light italic">lacreation.moments@gmail.com</p>
+      <div className="max-w-4xl mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-6xl font-light mb-8 uppercase tracking-widest">CRÉONS ENSEMBLE VOS SOUVENIRS</h2>
+          <p className="text-taupe/70 font-light text-lg max-w-2xl mx-auto leading-relaxed mb-8">
+            Remplissez le formulaire ci-dessous ou contactez-moi directement sur Instagram pour me parler de votre projet.
+          </p>
+          <a 
+            href="https://www.instagram.com/lacreation.moments/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-taupe hover:text-taupe/60 transition-colors uppercase tracking-[0.2em] text-[10px] font-medium border-b border-taupe/20 pb-1"
+          >
+            <Instagram size={14} /> M’écrire sur Instagram
+          </a>
         </div>
 
-        {submitted ? (
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="text-center py-20 bg-stone-50 rounded-sm border border-taupe/10"
-          >
-            <Heart className="mx-auto mb-6 text-taupe/40" size={48} strokeWidth={1} />
-            <h3 className="text-2xl font-serif mb-4">Merci pour votre message</h3>
-            <p className="text-taupe/60 font-light">Je reviendrai vers vous très prochainement pour discuter de votre projet.</p>
-          </motion.div>
-        ) : (
-          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10">
-            <div className="space-y-10">
-              <div className="border-b border-taupe/20 pb-4 focus-within:border-taupe transition-colors">
-                <label className="text-[10px] uppercase tracking-widest text-taupe/40 block mb-2">Nom & Prénom</label>
-                <input required type="text" className="w-full bg-transparent focus:outline-none font-light text-taupe" placeholder="Votre nom" />
-              </div>
-              <div className="border-b border-taupe/20 pb-4 focus-within:border-taupe transition-colors">
-                <label className="text-[10px] uppercase tracking-widest text-taupe/40 block mb-2">E-mail</label>
-                <input required type="email" className="w-full bg-transparent focus:outline-none font-light text-taupe" placeholder="votre@email.com" />
-              </div>
-              <div className="border-b border-taupe/20 pb-4 focus-within:border-taupe transition-colors">
-                <label className="text-[10px] uppercase tracking-widest text-taupe/40 block mb-2">Date & Lieu</label>
-                <input required type="text" className="w-full bg-transparent focus:outline-none font-light text-taupe" placeholder="Ex: 12 Juin 2026, Paris" />
-              </div>
+        <form 
+          name="contact" 
+          method="POST" 
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10 bg-stone-50/50 p-8 md:p-12 rounded-2xl border border-taupe/5"
+        >
+          {/* Hidden input for Netlify Forms */}
+          <input type="hidden" name="form-name" value="contact" />
+          <p className="hidden">
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+          </p>
+          
+          <div className="space-y-10">
+            <div className="border-b border-taupe/20 pb-4 focus-within:border-taupe transition-colors">
+              <label className="text-[10px] uppercase tracking-widest text-taupe/40 block mb-2">Nom & Prénom</label>
+              <input name="nom" required type="text" className="w-full bg-transparent focus:outline-none font-light text-taupe" placeholder="Votre nom" />
             </div>
-            <div className="space-y-10">
-              <div className="border-b border-taupe/20 pb-4 focus-within:border-taupe transition-colors">
-                <label className="text-[10px] uppercase tracking-widest text-taupe/40 block mb-2">Type d'événement</label>
-                <select required className="w-full bg-transparent focus:outline-none font-light appearance-none text-taupe">
-                  <option>Mariage</option>
-                  <option>Fiançailles</option>
-                  <option>Henné</option>
-                  <option>EVJF</option>
-                  <option>Autre</option>
-                </select>
-              </div>
-              <div className="border-b border-taupe/20 pb-4 focus-within:border-taupe transition-colors">
-                <label className="text-[10px] uppercase tracking-widest text-taupe/40 block mb-2">Votre message</label>
-                <textarea required rows={3} className="w-full bg-transparent focus:outline-none font-light resize-none text-taupe" placeholder="Dites-moi tout..."></textarea>
-              </div>
-              <button type="submit" className="w-full py-5 bg-taupe text-white rounded-full text-[10px] uppercase tracking-[0.3em] font-medium hover:bg-taupe/90 transition-all shadow-lg">
-                Envoyer ma demande
-              </button>
+            <div className="border-b border-taupe/20 pb-4 focus-within:border-taupe transition-colors">
+              <label className="text-[10px] uppercase tracking-widest text-taupe/40 block mb-2">E-mail</label>
+              <input name="email" required type="email" className="w-full bg-transparent focus:outline-none font-light text-taupe" placeholder="votre@email.com" />
             </div>
-          </form>
-        )}
+            <div className="border-b border-taupe/20 pb-4 focus-within:border-taupe transition-colors">
+              <label className="text-[10px] uppercase tracking-widest text-taupe/40 block mb-2">Date & Lieu</label>
+              <input name="date_lieu" required type="text" className="w-full bg-transparent focus:outline-none font-light text-taupe" placeholder="Ex: 12 Juin 2026, Paris" />
+            </div>
+          </div>
+          
+          <div className="space-y-10">
+            <div className="border-b border-taupe/20 pb-4 focus-within:border-taupe transition-colors">
+              <label className="text-[10px] uppercase tracking-widest text-taupe/40 block mb-2">Type d'événement</label>
+              <select name="evenement" required className="w-full bg-transparent focus:outline-none font-light appearance-none text-taupe">
+                <option>Mariage</option>
+                <option>Fiançailles</option>
+                <option>Henné</option>
+                <option>EVJF</option>
+                <option>Autre</option>
+              </select>
+            </div>
+            <div className="border-b border-taupe/20 pb-4 focus-within:border-taupe transition-colors">
+              <label className="text-[10px] uppercase tracking-widest text-taupe/40 block mb-2">Votre message</label>
+              <textarea name="message" required rows={3} className="w-full bg-transparent focus:outline-none font-light resize-none text-taupe" placeholder="Dites-moi tout..."></textarea>
+            </div>
+            <button type="submit" className="w-full py-5 bg-taupe text-white rounded-full text-[10px] uppercase tracking-[0.3em] font-medium hover:bg-taupe/90 transition-all shadow-lg">
+              Envoyer ma demande
+            </button>
+          </div>
+        </form>
       </div>
     </section>
   );
